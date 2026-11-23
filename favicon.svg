@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- a 5¼" floppy in the C64's colours: light blue jacket on the screen's blue -->
+  <rect width="64" height="64" rx="10" fill="#352879"/>
+  <rect x="8" y="8" width="48" height="48" rx="3" fill="#a69bf0"/>
+  <circle cx="32" cy="30" r="9" fill="#352879"/>
+  <circle cx="32" cy="30" r="4" fill="#a69bf0"/>
+  <rect x="28" y="42" width="8" height="12" rx="3" fill="#352879"/>
+  <circle cx="45" cy="30" r="2" fill="#352879"/>
+</svg>

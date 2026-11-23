@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PicoD64: a Commodore 1541 disk drive emulator for the C64, in hardware</title>
+<meta name="description" content="PicoD64 is a hardware 1541 disk drive emulator for the Commodore 64: a Raspberry Pi Pico 2 emulates the drive cycle by cycle, loads D64 disk images from a microSD card, and runs demanding fast loaders on a real C64. Open hardware, cheap and easy to build.">
+<link rel="canonical" href="https://picod64.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PicoD64">
+<meta property="og:url" content="https://picod64.github.io/">
+<meta property="og:title" content="PicoD64: a Commodore 1541 disk drive emulator for the C64, in hardware">
+<meta property="og:description" content="PicoD64 is a hardware 1541 disk drive emulator for the Commodore 64: a Raspberry Pi Pico 2 emulates the drive cycle by cycle, loads D64 disk images from a microSD card, and runs demanding fast loaders on a real C64. Open hardware, cheap and easy to build.">
+<meta property="og:image" content="https://picod64.github.io/img/assembled.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebSite", "name": "PicoD64", "url": "https://picod64.github.io/",
+ "description": "A hardware Commodore 1541 disk drive emulator for the C64, built on a Raspberry Pi Pico 2: open hardware, D64 images on a microSD card."}
+</script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+<div class="screen">
+
+<header class="banner">
+  <h1>**** PicoD64 disk drive ****</h1>
+  <p>A cycle-exact Commodore 1541 disk drive emulator for the C64, in hardware, that you can build</p>
+</header>
+<div class="prompt">READY.<br><span class="cursor" aria-hidden="true"></span></div>
+
+<nav aria-label="Sections">
+  <a href="#what">LOAD"WHAT IS IT",8</a>
+  <a href="#get">LOAD"GET ONE",8</a>
+  <a href="build.html">LOAD"BUILD",8</a>
+  <a href="parts.html">LOAD"PARTS",8</a>
+  <a href="#setup">LOAD"SET UP",8</a>
+  <a href="#use">LOAD"USING IT",8</a>
+  <a href="guide.html">LOAD"GUIDE",8</a>
+  <a href="compat.html">LOAD"TESTED",8</a>
+  <a href="#downloads">LOAD"$",8</a>
+  <a href="#faq">LOAD"HELP",8</a>
+  <a href="#support">LOAD"KO-FI",8</a>
+</nav>
+
+<main>
+
+<section id="what">
+  <div class="hero">
+    <div>
+      <p class="lead">PicoD64 is a disk drive for the Commodore 64: a 1541 emulator in hardware. It plugs into the C64's disk drive socket and takes the place of a 1541. Your disks are D64 files on a microSD card.</p>
+      <p>Inside, a Raspberry Pi Pico 2 emulates the 1541 in software: its processor and chips, one clock cycle at a time, running the drive's own operating system. That is why it works with the fast loaders in demos and games that trip up simpler SD drives.</p>
+    </div>
+    <img src="img/assembled.png" alt="PicoD64 assembled in its 3D-printed case: the display showing PicoD64, the PWR and ACT lights, the knob with a floppy disk symbol, and the two IEC sockets at the back" width="760" height="565">
+  </div>
+  <div class="btns">
+    <a class="btn" href="#get">Get one</a>
+    <a class="btn" href="#setup">Set it up</a>
+    <a class="btn alt" href="https://bitbarista.github.io/picod64/host/panel-demo/panel-demo.html">Front panel demo</a>
+  </div>
+
+  <h3>What you get</h3>
+  <div class="cards">
+    <div class="card"><h3>Built-in menu</h3><p>Type <code>LOAD"*",8</code> and <code>RUN</code>: a menu of your card opens on the C64. Nothing to install on the card or the C64.</p></div>
+    <div class="card"><h3>Fast loading</h3><p>Programs (PRG files) on the card load about 27 times faster than a normal drive (measured on the PC test setup), with one key to turn it off. Disk images load the normal 1541 way.</p></div>
+    <div class="card"><h3>Copy protection</h3><p>A D64 that records the original disk's read errors has them built back in, so a protection that checks for them finds them.</p></div>
+    <div class="card"><h3>A knob and a display</h3><p>Insert, swap and eject disks on the drive itself. Hold the knob for the next disk of a multi-disk game.</p></div>
+    <div class="card"><h3>It really writes</h3><p>SAVE, scratch and format go back into the disk image on the card.</p></div>
+    <div class="card"><h3>Updates from the card</h3><p>Copy a new <code>picod64.uf2</code> to the card and switch on. PicoD64 checks it and installs it itself.</p></div>
+    <div class="card"><h3>Sounds like a drive</h3><p>A small speaker plays the head stepping, the knock and the motor, following what the drive is doing.</p></div>
+    <div class="card"><h3>Open and free</h3><p>Open hardware and free software. Build one, build ten, sell them. Change it and share your changes.</p></div>
+  </div>
+</section>
+
+<section id="get">
+  <h2>Get one</h2>
+  <p>PicoD64 is a kit you build yourself. It is designed to be cheap and easy: a small board with almost every part pushed through holes and soldered underneath, a Raspberry Pi Pico 2, a small display, a knob and a 3D-printed case. If you have soldered a kit before, you can build this.</p>
+  <figure><img src="img/hero.png" alt="The PicoD64 board, with its Raspberry Pi Pico 2, two disk drive sockets, microSD socket, knob, display header and lights, beside its 3D-printed case shown in parts" width="1735" height="560" class="board"><figcaption>The board and the case, in parts.</figcaption></figure>
+  <ol class="steps">
+    <li><div><strong>Order the board.</strong> Send the board file, <a href="https://github.com/bitbarista/picod64/releases/latest/download/picod64-rev1.1-gerbers.zip">picod64-rev1.1-gerbers.zip</a>, to a board maker such as JLCPCB, as it is: 2 layers, 1.6 mm. Signing up through <a href="https://jlcpcb.com/?from=PBTJYEXOJNFQR">this referral link</a> costs you nothing extra and earns the project a little credit.</div></li>
+    <li><div><strong>Buy the parts.</strong> The <a href="parts.html">parts list</a> has a ready-made Farnell order file you can upload in one go.</div></li>
+    <li><div><strong>Solder it.</strong> The <a href="https://bitbarista.github.io/picod64/hardware/fab/picod64-ibom.html">interactive parts map</a> shows where each part goes and lets you tick them off. The <a href="build.html">build guide</a> goes step by step: which part first, which way round, and the first test.</div></li>
+    <li><div><strong>Print the case.</strong> Every part is in <a href="https://github.com/bitbarista/picod64/releases/latest/download/picod64-case-stl.zip">picod64-case-stl.zip</a>. Print them as they are, with no brim and no supports.</div></li>
+    <li><div><strong>Flash it and make the card</strong>, below.</div></li>
+  </ol>
+  <div class="note">Want one but don't want to build it? Anyone may build and sell PicoD64s. Ask on the <a href="https://www.lemon64.com/forum/">Lemon64 forum</a> whether anyone is building them.</div>
+</section>
+
+<section id="setup">
+  <h2>Set it up</h2>
+  <ol class="steps">
+    <li><div><strong>Put the firmware on.</strong> Download <a href="https://github.com/bitbarista/picod64/releases/latest/download/picod64.uf2">picod64.uf2</a>. Hold the Pico's BOOTSEL button (in the case, press the pinhole marked ⤓ with a paperclip) and plug it into your computer by USB. A drive called <code>RP2350</code> appears: copy the file onto it. Done.</div></li>
+    <li><div><strong>Get a microSD card ready.</strong> Any size, formatted FAT32 or exFAT, as most cards come. Copy your disk images (<code>.d64</code>) and programs (<code>.prg</code>) onto it, in folders if you like.</div></li>
+    <li><div><strong>Add the 1541 ROM.</strong> PicoD64 runs the drive's own operating system, which is Commodore's copyright, so it can't come with it. The <a href="https://bitbarista.github.io/picod64/fw/tools/card-setup.html">card setup page</a> does it for you: click <em>Get the 1541 ROM</em>, and it fetches it from the zimmers.net archive, checks it and saves <code>dos1541.bin</code> for the top folder of the card. <em>(Rather not use a web page? See the other ways below the steps.)</em></div></li>
+    <li><div><strong>Plug it in.</strong> Put the card in, connect PicoD64 to the C64's disk drive socket with a standard drive cable, and power it from any USB supply. Switch the C64 on.</div></li>
+    <li><div><strong>Try it.</strong> On the C64 type:
+<pre>LOAD"*",8
+RUN</pre>
+    and the menu opens on your card.</div></li>
+  </ol>
+  <!-- ROM-WAYS -->
+<!-- GENERATED by site/make_pages.py from README.md (the 1541 DOS ROM): edit that, not this -->
+<details class="romways"><summary>Other ways to get the ROM: a script for Windows, Linux or macOS, or by hand</summary>
+<ul>
+<li>
+<p><strong>Windows, with a script:</strong> download <a href="https://github.com/bitbarista/picod64/raw/main/fw/tools/get-roms.ps1">the Windows script</a>, open <strong>PowerShell</strong>
+    in the folder you saved it to, and run (with your card's drive letter):</p>
+<pre><code>powershell -ExecutionPolicy Bypass -File get-roms.ps1 E:\
+</code></pre>
+<p>It downloads the ROMs, joins and checks them, and writes them to the card.
+(<code>-ExecutionPolicy Bypass</code> lets this one script run; Windows blocks downloaded scripts by default.)</p>
+</li>
+<li>
+<p><strong>Windows, by hand:</strong> download the two halves of the 1541 ROM,
+    <a href="https://www.zimmers.net/anonftp/pub/cbm/firmware/drives/new/1541/1541-c000.325302-01.bin">1541-c000.325302-01.bin</a>
+    and <a href="https://www.zimmers.net/anonftp/pub/cbm/firmware/drives/new/1541/1541-e000.901229-05.bin">1541-e000.901229-05.bin</a>,
+    open <strong>Command Prompt</strong> (not PowerShell: there <code>copy</code> works differently) in the folder they are in, and join them:</p>
+<pre><code>copy /b 1541-c000.325302-01.bin + 1541-e000.901229-05.bin dos1541.bin
+</code></pre>
+<p>Copy <code>dos1541.bin</code> to the top folder of the card.</p>
+</li>
+<li>
+<p><strong>Linux or macOS:</strong> <code>bash fw/tools/get-roms.sh /path/to/the/card</code> does the same as the Windows
+    script. By hand: <code>cat 1541-c000.325302-01.bin 1541-e000.901229-05.bin &gt; dos1541.bin</code>.</p>
+</li>
+<li>It must be exactly <strong>16,384 bytes</strong>, MD5 <code>a0ce8439d1b8dcf2e1430461f7233a72</code>: that is the ROM
+    PicoD64 is tested with (on Windows, <code>certutil -hashfile dos1541.bin MD5</code> shows it). If the file is
+    missing or the wrong size, the OLED shows <em>Need /dos1541.bin</em>.</li>
+</ul>
+</details>
+<!-- /ROM-WAYS -->
+</section>
+
+<section id="use">
+  <h2>Using it</h2>
+  <p>There are two ways in: the menu on the C64's screen, and the knob and display on the drive. They work together.</p>
+
+  <h3>The menu on the C64</h3>
+  <figure>
+    <img src="img/browser-folder.png" alt="The menu in a folder: four disks of a set, each with its format (D64) and disk number" width="1152" height="816">
+    <figcaption>Folders, disks and programs, with each file's format and which disk of a set it is.</figcaption>
+  </figure>
+  <div class="tablewrap"><table>
+    <tr><th>Key</th><th>What it does</th></tr>
+    <tr><td><kbd>Cursor up/down</kbd></td><td>Move</td></tr>
+    <tr><td><kbd>RETURN</kbd></td><td>Run the program, or open the folder or disk</td></tr>
+    <tr><td>Just type</td><td>Show only names with what you typed</td></tr>
+    <tr><td><kbd>DEL</kbd></td><td>Back out of a disk or folder</td></tr>
+    <tr><td><kbd>F1</kbd></td><td>Options: run, load, run slowly; on a disk open, run its first program, or insert it</td></tr>
+    <tr><td><kbd>F3</kbd></td><td>Fast loading on or off</td></tr>
+  </table></div>
+  <p>A joystick in port 2 works too. The menu remembers where you were, even after the C64 is switched off.</p>
+  <figure>
+    <img src="img/browser-directory-art.png" alt="A disk's directory shown the way the C64 shows it, with its PETSCII art" width="1152" height="816">
+    <figcaption>Inside a disk, the directory is shown the way the C64 shows it, art and all.</figcaption>
+  </figure>
+
+  <h3>The knob and display</h3>
+  <div class="pair oled">
+    <figure><img src="img/oled-status.png" alt="The display: PicoD64, device 8, browsing the card" width="512" height="256"><figcaption>What's in the drive.</figcaption></figure>
+    <figure><img src="img/oled-files.png" alt="The display's file list" width="512" height="256"><figcaption>Turn to pick a disk, press to put it in.</figcaption></figure>
+    <figure><img src="img/oled-next-disk.png" alt="The display after a long press: the next disk of the set" width="512" height="256"><figcaption>Hold for the next disk of a set.</figcaption></figure>
+  </div>
+  <div class="note">Try it before you build: the <a href="https://bitbarista.github.io/picod64/host/panel-demo/panel-demo.html">front panel demo</a> runs the real knob and display software in your browser.</div>
+  <p>For a multi-disk game, put disk 1 in, and when it asks for the next disk, <strong>hold the knob</strong>. The display shows which disk is in, such as <code>2/3</code>. The knob's Settings also make a new blank disk and set the device number (8 to 11).</p>
+  <p>Plain BASIC works as on a 1541: <code>LOAD"$",8</code>, <code>LOAD"NAME",8,1</code>, <code>SAVE</code>. More in the <a href="guide.html">user guide</a>.</p>
+</section>
+
+<section id="downloads">
+  <h2>Downloads</h2>
+  <p>Click a link and the file downloads.</p>
+  <div class="tablewrap"><table>
+    <tr><th>What</th><th>File</th></tr>
+    <tr><td>Firmware</td><td><a href="https://github.com/bitbarista/picod64/releases/latest/download/picod64.uf2">picod64.uf2</a></td></tr>
+    <tr><td>The 1541 ROM, for the card</td><td><a href="https://bitbarista.github.io/picod64/fw/tools/card-setup.html">Card setup page</a></td></tr>
+    <tr><td>The board, for a board maker</td><td><a href="https://github.com/bitbarista/picod64/releases/latest/download/picod64-rev1.1-gerbers.zip">picod64-rev1.1-gerbers.zip</a></td></tr>
+    <tr><td>The case, to 3D print</td><td><a href="https://github.com/bitbarista/picod64/releases/latest/download/picod64-case-stl.zip">picod64-case-stl.zip</a></td></tr>
+    <tr><td>Where each part goes</td><td><a href="https://bitbarista.github.io/picod64/hardware/fab/picod64-ibom.html">Interactive parts map</a></td></tr>
+    <tr><td>Everything: source, parts lists, documents</td><td><a href="https://github.com/bitbarista/picod64/archive/refs/heads/main.zip">The whole project (zip)</a></td></tr>
+  </table></div>
+  <p>Older versions are on the <a href="https://github.com/bitbarista/picod64/releases">releases page</a>.</p>
+</section>
+
+<section id="faq">
+  <h2>Help</h2>
+  <details><summary>What do I need besides PicoD64?</summary><p>A C64, a standard disk drive cable (6-pin DIN, as a 1541 uses), a microSD card and a USB power supply such as a phone charger.</p></details>
+  <details><summary>The display says "Need /dos1541.bin"</summary><p>The 1541 ROM isn't on the card, or it's the wrong file. Use the <a href="https://bitbarista.github.io/picod64/fw/tools/card-setup.html">card setup page</a> and put <code>dos1541.bin</code> in the top folder of the card.</p></details>
+  <details><summary>A program won't load with the fast loading</summary><p>Press <kbd>F1</kbd> on it and choose <em>Run slow</em>, or turn fast loading off with <kbd>F3</kbd>. Some programs bring their own loader and are happier that way.</p></details>
+  <details><summary>Can I keep my fast-load cartridge or JiffyDOS?</summary><p>Yes. A fast-load cartridge can stay fitted. JiffyDOS works with your own JiffyDOS drive ROM on the card; that has been tested on the PC, not yet on a real C64.</p></details>
+  <details><summary>Can I use it with my other drives?</summary><p>Yes: it has a second socket to chain on to other drives, and its device number can be 8 to 11. Some fast loaders want to be the only drive on the cable, on a real 1541 too.</p></details>
+  <details><summary>Which disk images work?</summary><p>D64 images (35, 40 and 42 tracks, with or without error bytes) and PRG files. G64, D71 and D81 aren't supported yet.</p></details>
+  <details><summary>How do I update the firmware?</summary><p>Download <a href="https://github.com/bitbarista/picod64/releases/latest/download/picod64.uf2">picod64.uf2</a>, copy it to the top folder of the card and switch PicoD64 on. The display shows <em>Updating, wait</em>, then <em>Updated</em>, and the file is renamed <code>picod64.uf2.done</code>. Don't switch off while it updates. Firmware from before this way existed (v0.1) is updated once with the Pico's BOOTSEL button, as when it was first flashed.</p></details>
+  <details><summary>Can I sell them?</summary><p>Yes. The hardware is under CERN-OHL-W and the code GPL-3.0: free for private and commercial use. If you change it, share your changes under the same terms.</p></details>
+  <details><summary>Where can I ask for help?</summary><p>On the <a href="https://www.lemon64.com/forum/">Lemon64 forum</a>, or by opening an <a href="https://github.com/bitbarista/picod64/issues">issue on GitHub</a>.</p></details>
+</section>
+
+<section id="support" class="support">
+  <h2>Support PicoD64</h2>
+  <p>PicoD64 is a free hobby project, given to the community. If it's useful to you, a coffee on Ko-fi helps pay for new prototypes and test hardware.</p>
+  <p><a href="https://ko-fi.com/bitbarista" target="_blank" rel="noopener"><img class="kofi" src="https://storage.ko-fi.com/cdn/kofi2.png?v=3" height="44" alt="Buy Me a Coffee at ko-fi.com"></a></p>
+</section>
+
+</main>
+
+<div class="rainbow" aria-hidden="true"></div>
+<footer>
+  <p>Like PicoD64? <a href="https://ko-fi.com/bitbarista">Support it on Ko-fi</a>.</p>
+  <p>Hardware CERN-OHL-W 2.0, code GPL-3.0. Written clean-room from datasheets and Commodore's own documents. Commodore and Commodore 64 are trademarks of their owners; PicoD64 isn't connected with them. Screen font: Bescii Mono (CC0). Source on <a href="https://github.com/bitbarista/picod64">GitHub</a>. <a href="compat.html">Titles tested on a real C64</a>.</p>
+</footer>
+
+</div>
+</body>
+</html>

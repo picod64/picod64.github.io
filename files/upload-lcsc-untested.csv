@@ -1,0 +1,23 @@
+Quantity,LCSC Part Number,Manufacture Part Number,Manufacturer,Description,Customer Reference,Note
+1,C76871,PS1240P02BT,TDK,"Piezo transducer, external drive, Ø12.2 x 6.5 mm, 5.0 mm pitch",BZ1,
+1,C88726,50YXF10MEFC5X11,Rubycon,"Electrolytic 10 µF 50 V, 5 x 11 mm, 2.0 mm pitch",C1,"ALT: 10 uF 50 V 5 x 11, 2.0 mm pitch"
+2,C1620173,K104K15X7RF53L2,Vishay,"Ceramic 100 nF 50 V X7R, radial, 2.5 mm lead spacing",C2 C3,
+2,C1620203,K103K15X7RF53L2,Vishay,"Ceramic 10 nF 50 V X7R, radial, 2.5 mm lead spacing",C4 C5,
+1,C598459,L-934GD,Kingbright,"LED 3 mm green diffused, 568 nm, 8-20 mcd @ 10 mA",D1,
+1,C598462,L-934ID,Kingbright,"LED 3 mm high-efficiency red diffused, 625 nm, 8-20 mcd @ 10 mA",D2,low stock (10 on 2026-10-30)
+2,C145202,1N5819-E3/54,Vishay,"Schottky 1N5819, DO-41",D4 D3,
+1,C3029735,MEM2075-00-140-01-A,GCT,"microSD socket, push-push, all tails exposed",J3,
+1,C5380967,M20-7820446,Harwin,"Socket 1 x 4, 2.54 mm, 8.5 mm high",J4,ALT: Würth not on LCSC; same 8.5 mm 1 x 4 socket
+3,C124482,2N3904BU,onsemi,"NPN 2N3904, TO-92 (E-B-C)",Q1 Q2 Q3,
+5,C58600,MFR0W4F6801A50,Uni-Royal,Resistor 6k8 1 % 0.25 W metal film,R1 R2 R3 R4 R15,ALT: metal film 1/4 W 1 %
+2,C58592,MFR0W4F4700A50,Uni-Royal,Resistor 470R 1 % 0.25 W,R12 R13,ALT: metal film 1/4 W 1 %
+1,C57438,MFR0W4F1000A50,Uni-Royal,Resistor 100R 1 % 0.25 W,R14,ALT: metal film 1/4 W 1 %
+3,C58599,MFR0W4F6800A50,Uni-Royal,Resistor 680R 1 % 0.25 W,R5 R7 R16,ALT: metal film 1/4 W 1 %
+5,C57436,MFR0W4F1002A50,Uni-Royal,Resistor 10k 1 % 0.25 W,R6 R8 R11 R18 R17,ALT: metal film 1/4 W 1 %
+2,C57204,MFR0W4F4701A50,Uni-Royal,Resistor 4k7 1 % 0.25 W (I²C pull-ups),R9 R10,ALT: metal film 1/4 W 1 %
+1,C840660,4609X-101-103LF,Bourns,"Resistor network 10k x 8, bussed, SIP-9 (pin 1 = common, dot)",RN1,
+1,C840666,4605X-101-103LF,Bourns,"Resistor network 10k x 4, bussed, SIP-5 (pin 1 = common, dot)",RN2,
+1,C11389,A05-102JP,FH,"Resistor network 1k x 4, bussed, SIP-5",RN3,"ALT: 1k x 4 bussed SIP-5, 5 %; type A = pin 1 common, as Bourns"
+1,C370970,EC11E15244G1,Alps Alpine,"Rotary encoder with push switch, 15 PPR / 30 detents, 20 mm D shaft, 0.5 mm travel",SW1,
+1,C2337,2.54-1*40P,BOOMELE,"Pin header strip 1 x 40, 2.54 mm, breakaway: cut J5, JP1, JP2 (3 each), J6 (2), J7 (5)",(off board),ALT: 1 x 40 breakaway strip; cut J5 JP1 JP2 J6 J7 from it
+2,C3715628,QPC02SXGN-RC,Sullins,"Jumper cap 2.54 mm (JP1, JP2)",(off board),ALT: 2.54 mm jumper cap

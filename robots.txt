@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://picod64.github.io/sitemap.xml
